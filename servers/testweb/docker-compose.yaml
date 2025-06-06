@@ -1,0 +1,15 @@
+services:
+  testweb:
+    image: nginx:alpine
+    container_name: testweb
+    restart: unless-stopped
+    volumes:
+      - ./www:/usr/share/nginx/html
+    expose:
+      - "80"
+    networks:
+      - proxiable
+
+networks:
+  proxiable:
+    external: true

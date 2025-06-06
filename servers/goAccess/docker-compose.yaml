@@ -1,0 +1,50 @@
+services:
+  goaccess:
+    image: allinurl/goaccess:latest
+    container_name: goaccess
+    restart: "no"
+   
+    # Variables de entorno para configuración
+    environment:
+      - TZ=Europe/Madrid
+      - GOACCESS_CONFIG_FILE=/etc/goaccess/goaccess.conf
+   
+    volumes:
+      # Logs de Nginx Proxy Manager (solo lectura)
+      - /home/tuUser/servers/nginx/data/logs:/opt/log:ro  # verificar que se encuentran ahí: ls -lh /home/jotuUserse/servers/nginx/data/logs
+      # Configuración personalizada de  en archivo se encuentra en /home/tuUser/servers/goAccess
+      - ./goaccess.conf:/etc/goaccess/goaccess.conf:ro 
+      # Directorio donde se generarán los reportes HTML
+      -  ./reports:/srv/report 
+      # Script personalizado para generar reportes, archivo se encuentra en /home/tuUser/servers/goAccess
+      - ./generate-report.sh:/usr/local/bin/generate-report.sh:ro
+   
+    networks: 
+      - proxiable
+
+
+  # CONTENEDOR 2. Servidor web para mostrar los reportes
+  goaccessWeb:
+    image: nginx:alpine
+    container_name: goaccessWeb
+    restart: unless-stopped
+   
+    volumes:
+      # Los reportes generados por GoAccess directorio situado en /home/tuUser/servers/goAccess/reports
+      - ./reports:/usr/share/nginx/html:ro
+      # Configuración de Nginx con autenticación básica  situado en /home/tuUser/servers/goAccess
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      # Archivo de usuarios para autenticación  situado en /home/tuUser/servers/goAccess
+      - ./htpasswd:/etc/nginx/.htpasswd:ro
+
+
+    networks:
+      - proxiable
+    expose:
+      - "80"
+    depends_on:
+      - goaccess
+   
+networks:
+  proxiable:
+   external: true

@@ -1,0 +1,15 @@
+services:
+  duplicati:
+    image: duplicati/duplicati:latest
+    container_name: duplicati
+    volumes:
+      - ./duplicati-data:/data
+      - /home/tuUser:/source # Carpeta origen (lo que quieres guardar)
+      - ./backups:/backups  # Carpeta destino de backups  en el mismo servidor si así lo deseamos
+    environment:
+      - TZ=Europe/Madrid
+      - SETTINGS_ENCRYPTION_KEY=${SETTINGS_ENCRYPTION_KEY}
+      - DUPLICATI_WEBSERVICE_PASSWORD=${DUPLICATI_WEBSERVICE_PASSWORD}
+    ports:
+      - 8200:8200
+    restart: unless-stopped
