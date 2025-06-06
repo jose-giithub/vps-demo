@@ -854,7 +854,7 @@ Al entrar por primera vez nos pedirá una nueva contraseña, la ponemos y la gua
 ## 🕵️Estructura de como tendria que quedar tus servidor
 
 *** Estrucutra resumida desde */home/tuUser* ***
-
+```text
 vps-demo/
 ├── scripts
 │   ├── actualizarSistema.sh
@@ -894,7 +894,7 @@ vps-demo/
            ├─ docker-compose.yam
            └── www
                   └── index.html
-
+```
 
 
 ## Contenido extra ➕➕
