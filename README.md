@@ -672,6 +672,7 @@ networks:
 
 ### 3. Crear página de prueba
 ```bash
+cd /home/tuUser/services/testweb/www
 nano www/index.html
 ```
 
