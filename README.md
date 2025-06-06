@@ -5,7 +5,8 @@ Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Prox
 ## 🧰 Si quieres uno tutorial mas completo lo tienes en: 
 🔗[Enlace tutorial Drive:](https://docs.google.com/document/d/1RMoX8kUR3lRntgdGNtjpnFPkNULrNoSefXUzDBEabOE/edit?usp=sharing)
 
-## Redes sociales
+## Redes sociales 🌐
+
 
 **Portfolio**🔗[Enlace portfolio:](https://portfolio.jose-rodriguez-blanco.es)
 **LinkedIn**🔗[Enlace LinkedIn:](https://www.linkedin.com/in/joseperfil/)
@@ -713,6 +714,7 @@ Esto confirma que ambos están en la misma red Docker y se pueden comunicar por 
    - **Domain Names**: tu-subdominio-web.com (el subdominio para tu web de prueba)
    - **Forward Hostname/IP**: `testweb` (nombre del contenedor)
    - **Forward Port**: `80`
+   - **Scheme**: http
    - **Pestaña *Block Common Exploits*** | ✅ Activado    
 
    3. **Configuración SSL (Opcional):**
@@ -998,6 +1000,18 @@ chmod +x /home/tuUser/scripts/*.sh
 - [Nginx Proxy Manager](https://nginxproxymanager.com/)
 - [Portainer Documentation](https://docs.portainer.io/)
 - [Duplicati Manual](https://duplicati.readthedocs.io/)
+
+---
+
+## 📚 Bibliografía y Recursos 🔗
+
+- **YouTube** 
+- **GitHub** 
+- **Docker Docs** 
+- **Docker Hub Container Image Library** 
+- **Solvetic** - Solución a los problemas informáticos 
+- **GoAccess** - Visual Web Log Analyzer 
+- **EmojiTerra** 🌍 - Emojis Copiar & Pegar 😄
 
 ---
 
