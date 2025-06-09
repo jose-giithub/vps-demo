@@ -70,7 +70,7 @@ Antes de empezar, asegúrate de tener lo siguiente:
 - ✅ Un subdominio dedicado para GoAccess (ej. goaccess.tu-dominio.es) apuntando a la IP de tu servidor
 
 Puedes encontrar información detallada sobre cómo realizar estos pasos en tu guía:
-🔗[Enlace tutorial Drive:](https://docs.google.com/document/d/1RMoX8kUR3lRntgdGNtjpnFPkNULrNoSefXUzDBEabOE/edit?usp=sharing)
+🔗[Repositorio GitHub:](https://github.com/jose-giithub/vps-demo/tree/main)
 
 ******
 ----

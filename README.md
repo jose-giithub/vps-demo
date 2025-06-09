@@ -2,8 +2,17 @@
 **Autor**: Jose Rodríguez  
 
 Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Proxy Manager.
+
+
+---
+
+## ¿Que es este tutorial?
+
+Guía paso a paso en la **configuración** de tu servidor **VPS** con Ubuntu. Crear un entorno **robusto**, **seguro** y **superoptimizado** y para alojar aplicaciones, **incluyendo** la instalación de **Docker** 🐳 y **Portainer** ⚓ para la gestión de contenedores, y **Nginx Proxy Manager** 👮 para la configuración de dominios y certificados SSL. Además, el tutorial cubre la **automatización** de **tareas de seguridad** 🛡️ y **mantenimiento** 🧹 con scripts, la implementación de backups automáticos 💾 con **Duplicati**, y la integración de **GoAccess** 📈 para el análisis las estadísticas principales. Al finalizar, tendrás un servidor preparado, seguro y optimizado para tus proyectos. ¡Listo para desplegar tus webs! 🚀🌐
+
+---
 ## 🧰 Si quieres uno tutorial mas completo lo tienes en: 
-🔗[Enlace tutorial Drive:](https://docs.google.com/document/d/1RMoX8kUR3lRntgdGNtjpnFPkNULrNoSefXUzDBEabOE/edit?usp=sharing)
+🔗[Configurar VPS desde 0 paso a paso, tutorial Drive:](https://docs.google.com/document/d/1RMoX8kUR3lRntgdGNtjpnFPkNULrNoSefXUzDBEabOE/edit?usp=sharing)
 
 ## Redes sociales 🌐
 
