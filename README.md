@@ -525,11 +525,13 @@ sudo bash /home/tuUser/scripts/limpieza_seguridad_diaria.sh
 cat /home/tuUser/scripts/logs/limpieza_seguridad_diaria_$(date +%F).log
 ```
 
-*********
+******
+----
+******
 
 ### Script de actualización semanal
 
->Crear un archivo que se ejecutará automáticamente todas las semanas para automatizar el servidor, enviar notificaciones por correo (éxito o error), y gestionar los logs de forma rotativa, guardando solo los de 7 días de antigüedad.
+>Crear un archivo que se ejecutará automáticamente todas las semanas para actualizar el servidor, enviar notificaciones por correo (éxito o error), y gestionar los logs de forma rotativa, guardando solo los de 7 días de antigüedad.
 
 El script guardará los logs de cada ejecución en la ruta */home/tuUser/scripts/logs/* con un formato de nombre diario (ej. actualizar_sistema_2025-06-05.log).
 
@@ -624,7 +626,8 @@ sudo bash /home/tuUser/scripts/actualizarSistema.sh
 ```bash
 cat /home/tuUser/scripts/logs/actualizar_sistema_$(date +%F).log
 ```
-> 🧐Verifica en tu correo si recibiste el e-mail
+> 🧐Verifica en tu correo si recibiste el e-mail.
+
 > 👀Podrás ver los logs diarios en **(/home/tuUser/scripts/logs)**
 
 ******
