@@ -3,9 +3,9 @@
 **Autor:** Jose Rodríguez 👨‍💻
 
 Guía completa  para montar GoAccess Dockerizado. Analizador de registros web con GoAccess, Docker, Nginx y autenticación básica.
-El contenedor no se actualiza a tiempo real si no de hora en hora haciendo que apenas consuma recursos
+El contenedor no se actualiza a tiempo real sino de hora en hora, haciendo que apenas consuma recursos
 
-## 🧰 Si quieres uno tutorial mas completo lo tienes en: 
+## 🧰 Si quieres un tutorial más completo lo tienes en: 
 
 🔗[Enlace tutorial Drive:](https://docs.google.com/document/d/1ufbek7ZnSgSbP3PBvDOkxrzfy_1YnVTzNZ6g5yTwGoM/edit?usp=sharing)
 
