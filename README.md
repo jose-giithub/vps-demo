@@ -1019,7 +1019,7 @@ vps-demo/
 │   ├── run_goaccess_report.sh
 │   └── logs
 │          ├── actualizar_sistema_2025-06-05.log
-│          └── limpieza_seguridad_diaria.log
+│          └── limpieza_seguridad_diaria_2025-06-05.log
 └── servers
     ├── duplicati
     │   ├── docker-compose.yaml
