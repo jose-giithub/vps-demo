@@ -96,19 +96,19 @@ sudo apt install p7zip-full nano tree -y
 ```
 
 2. **net-tools**
->> Comando ifconfig, netstat y otros.
+> Comando ifconfig, netstat y otros.
 
 ```bash
 sudo apt install net-tools -y
 ```
 3. **nmap**
->>Escaneo de puertos (para saber qué está abierto o cerrado).
+>Escaneo de puertos (para saber qué está abierto o cerrado).
 
 ```bash
 sudo apt install nmap 
 ```
 4. **lsof**
->>Ver qué procesos están usando archivos o puertos.
+>Ver qué procesos están usando archivos o puertos.
 
 ```bash
 sudo apt install lsof 
@@ -197,9 +197,11 @@ sudo journalctl --vacuum-time=7d  #Esto borrará los logs del sistema de más de
 ## 📧 Configurar correos automáticos 
 
 >> ***🚨Super importante:***
-> **Nota**: Necesitas crear una contraseña de aplicación en Gmail para usar con aplicaciones menos seguras.
+> **Nota**: Necesitas crear una contraseña de aplicación en Gmail para usar *msmtp*.
+
 > **🛠️ ¿Cómo crear una contraseña de aplicaciones en Gmail?**
-🔗[Enlace tutorial YouTube:](https://www.youtube.com/watch?v=xnbGakU7vhE&ab_channel=IntegraConsorcio)
+
+📽️[Enlace tutorial YouTube:](https://www.youtube.com/watch?v=xnbGakU7vhE&ab_channel=IntegraConsorcio)
 🔗[Enlace para crear contraseña para aplicaciones:](https://myaccount.google.com/apppasswords?pli=1&rapt=AEjHL4MHL_5C54kRNxmAyPqkCc11cIS6PaQUadf10jiV0NpqTOVls3mv0scETT8lfjeF3LkRqx6fEXGmxSkQryd4Rk8ODLijJ8l7OuniUnNRxUDbhqPd2y8)
 
 ### 1. Instalar cliente de correo
@@ -218,7 +220,8 @@ sudo apt install -y msmtp msmtp-mta
 nano ~/.msmtprc
 ```
 
-Contenido:
+Contenido del archivo:
+
 ```
 defaults
 auth on
@@ -240,6 +243,7 @@ password TU_CONTRASEÑA_DE_APLICACION
 chmod 600 ~/.msmtprc
 ```
 ### 4. 🔓 Validar que el puerto esté abierto en tu servidor
+
 >Para Gmail se usa puerto **587** con TLS.
 
 ```bash
@@ -255,7 +259,70 @@ telnet smtp.gmail.com 587
 ```bash
 echo "Mensaje de prueba" | mail -s "Prueba desde servidor" tu-email@gmail.com
 ```
->Verifica que llegó en tu bandeja de entrada de G-mail
+>Verifica que llegó en tu bandeja de entrada de Gmail
+
+### 6. 📧 Instalar *mailutils* para la gestionar el correo electrónico en la consola.
+
+
+**1. Instala *mailutils***
+
+```bash
+sudo apt install mailutils
+```
+
+**2. 🕵️ Verificar que msmtp ya está vinculado como sendmail con un enlace simbólico que apunte a (ls -l /usr/sbin/ )**
+
+```bash
+ls -l /usr/sbin/sendmail 
+```
+>✔️ Si ves esto:
+
+```bash
+/usr/sbin/sendmail -> ../bin/msmtp
+```
+👍…entonces ya está listo. 
+
+
+>👎Si no, puedes enlazarlo manualmente:
+
+```bash
+sudo mv /usr/sbin/sendmail /usr/sbin/sendmail.bak
+sudo ln -s /usr/bin/msmtp /usr/sbin/sendmail
+```
+
+**3. 🖋️ Copiar la configuración de msmtp para el usuario root .**
+
+```bash
+sudo cp /home/tuUser/.msmtprc /root/.msmtprc
+sudo chmod 600 /root/.msmtprc
+```
+
+**4. 🕵️Valida que funcione.**
+
+- 1. Desde la terminal nos mandaremos un correo a nuestra cuenta de Gmail.
+
+```bash
+echo "¡Hola tuUser! Esto es una prueba usando msmtp como sendmail." | sudo sendmail ejemplo@gmail.com
+```
+- 2. 🧪Revisa tu correo en teoría tendría que haberte llegado este correo.
+
+
+**5. 🖋️Añadir *MAILTO* en el crontab de root**
+
+```bash
+sudo crontab -e
+```
+> Añade esto en la primera linea de tu documento cron
+```bash
+# m h  dom mon dow   command  <<<<------ ⚠️esta línea ya existe, añade justo debajo de esta, que seria la primera linea de edición del documento⚠️
+
+# Si el script falla antes de generar cualquier log, cron te mandará el stderr al mail
+MAILTO="ejemplo@gmail.com"
+# Enviar correo cada 2 minutos para probar
+*/2 * * * * echo "¡Hola tuUser! Esto es una prueba desde cron."
+```
+
+> Espera 2 minutos y verifica tu Gmail, si ves el correo ¡todo funciona! 🎉
 
 ******
 ----
@@ -502,7 +569,11 @@ Selecciona la opción:
 >Después de esto, se abrirá un archivo, tienes que añadir el código:
 
 ```bash
-20 4 * * * /home/tuUser/scripts/limpieza_seguridad_diaria.sh
+# Si el script falla antes de generar cualquier log, cron te mandará el stderr al mail
+MAILTO="tu_correo_aqui@gmail.com"
+
+# Comando para que se ejecute el archivo .sh que realizara un escaneo y limpiez>
+20 4 * * * bash /home/tuUser/scripts/limpieza_seguridad_diaria.sh >> /home/tuUser/scripts/logs/cron_debug.log 2>&1
 ```
 💾 Presiona `Ctrl + X` para salir y guardar. 
 
@@ -524,6 +595,21 @@ sudo bash /home/tuUser/scripts/limpieza_seguridad_diaria.sh
 # Modifica la fecha por la fecha de ejecución:
 cat /home/tuUser/scripts/logs/limpieza_seguridad_diaria_$(date +%F).log
 ```
+
+8. **🚀 Si hasta ahora todo ha funcionado. Programa una ejecución cerca de la hora que tienes para testear el sistema.**
+
+>Si algo falla puedes validar si tienes algo en la bandeja del correo interno del servidor
+
+
+```bash
+sudo mail
+```
+>Valida el log que se crea al ejecutar el con:
+
+```bash
+cat scripts/logs/cron_debug.log 
+```
+
 
 ******
 ----
