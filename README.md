@@ -5,30 +5,30 @@ Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Prox
 
 ## Índice
 
-- [¿Qué es este tutorial?](#qué-es-este-tutorial)
-- [🧰 Si quieres uno tutorial más completo lo tienes en:](#-si-quieres-uno-tutorial-más-completo-lo-tienes-en)
+- [¿Qué es este tutorial?](#que-es-este-tutorial)
+- [🧰 Si quieres uno tutorial más completo lo tienes en:](#-si-quieres-uno-tutorial-mas-completo-lo-tienes-en)
 - [📋 Requisitos previos](#-requisitos-previos)
 - [👤 Crear nuevo usuario personal](#-crear-nuevo-usuario-personal)
 - [💽 Actualiza sistema e instalar nuevas herramientas](#-actualiza-sistema-e-instalar-nuevas-herramientas)
 - [🛡️ Seguridad](#-seguridad)
 - [🧼 Escaneo y limpieza de malware](#-escaneo-y-limpieza-de-malware)
-- [📧 Configurar correos automáticos](#-configurar-correos-automáticos)
-- [🤖 Scripts automáticos](#-scripts-automáticos)
+- [📧 Configurar correos automáticos](#-configurar-correos-automaticos)
+- [🤖 Scripts automáticos](#-scripts-automaticos)
 - [🐳 Instalar Docker](#-instalar-docker)
 - [⚓ Instalar Portainer](#-instalar-portainer)
 - [👮 Nginx Proxy Manager](#-nginx-proxy-manager)
-- [☁️ Ejemplo web de prueba](#-ejemplo-web-de-prueba)
+- [☁️Ejemplo web de prueba](#ejemplo-web-de-prueba)
 - [🔥 Configurar firewall](#-configurar-firewall)
-- [💾 Backups automáticos con Duplicati](#-backups-automáticos-con-duplicati)
+- [💾 Backups automáticos con Duplicati](#-backups-automaticos-con-duplicati)
 - [🕵️ GoAccess analizador de registros del servidor web](#-goaccess-analizador-de-registros-del-servidor-web)
 - [🌳 Estructura de como tendría que quedar tu servidor](#-estructura-de-como-tendría-que-quedar-tu-servidor)
 - [Contenido extra ➕➕](#contenido-extra)
-- [🚨 Comandos útiles](#-comandos-útiles)
+- [🚨 Comandos útiles](#-comandos-utiles)
 - [Monitoreo del sistema](#monitoreo-del-sistema)
-- [🔧 Solución de problemas](#-solución-de-problemas)
+- [🔧 Solución de problemas](#-solucion-de-problemas)
 - [📚 Recursos adicionales](#-recursos-adicionales)
 - [🗄️ Base de datos MariaDB y PhpMyAdmin](#️-base-de-datos-mariadb-y-phpmyadmin)
-- [📚 Bibliografía y Recursos 🔗](#📚-bibliografía-y-recursos-🔗)
+- [Bibliografía y Recursos ](#-bibliografia-y-recursos )
 
 ---
 
@@ -910,7 +910,7 @@ docker compose up -d
 ----
 ******
 
-## ☁️ Ejemplo web de prueba
+## Ejemplo web de prueba
 
 ### 1. Crear estructura
 ```bash
@@ -1286,7 +1286,9 @@ chmod +x /home/tuUser/scripts/*.sh
 
 ---
 
-## 📚 Bibliografía y Recursos 🔗
+## Bibliografía y Recursos 
+
+**📚🔗**
 
 - **YouTube** 
 - **GitHub** 
