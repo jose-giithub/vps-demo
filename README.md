@@ -27,7 +27,7 @@ Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Prox
 - [Monitoreo del sistema](#monitoreo-del-sistema)
 - [🔧 Solución de problemas](#-solución-de-problemas)
 - [📚 Recursos adicionales](#-recursos-adicionales)
-- [🗄️¿Te gustaría añadir una base de datos segura y Dockerizada?](#️base-de-datos-mariadb-y-phpmyadmin)
+- [🗄️ Base de datos MariaDB y PhpMyAdmin](#️base-de-datos-mariadb-y-phpmyadmin)
 - [📚 Bibliografía y Recursos 🔗](#📚-bibliografía-y-recursos-🔗)
 
 ---
