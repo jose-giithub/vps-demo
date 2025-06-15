@@ -27,7 +27,7 @@ Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Prox
 - [Monitoreo del sistema](#monitoreo-del-sistema)
 - [🔧 Solución de problemas](#-solución-de-problemas)
 - [📚 Recursos adicionales](#-recursos-adicionales)
-- [🗄️¿Te gustaría añadir una base de datos segura y Dockerizada?](#base-de-datos-segura-y-Dockerizada)
+- [🗄️¿Te gustaría añadir una base de datos segura y Dockerizada?](#️base-de-datos-mariadb-y-phpmyadmin)
 - [📚 Bibliografía y Recursos 🔗](#📚-bibliografía-y-recursos-🔗)
 
 ---
@@ -1185,17 +1185,19 @@ cat /home/tuUser/scripts/logs/limpieza_seguridad_diaria_$(date +%F).log
 
 ```
 
-### 🗄️En tu proyecto ¿Te gustaría añadir una base de datos segura y Dockerizada? Aqui tienes el tutorial
+### 🗄️ Base de datos MariaDB y PhpMyAdmin
+
+**🗄️En tu proyecto ¿Te gustaría añadir una base de datos segura y Dockerizada? Aqui tienes el tutorial**
 
 >Montar una base de datos SQL para nuestro servidor usando MariaDB y para manipularla una interfaz web PhpMyAdmin con usuario y contraseña.
 
 - Documento Drive
 
-🔗[Base de datos MariaBD e interface web PhpMyAdmin Dockerizado, tutorial Drive:](https://docs.google.com/document/d/1iteWeHyYgD4lyjB1zA_IN_j3bb_SpFukxwEdetI4Eo8/edit?usp=sharing)
+🔗[Base de datos MariaDB e interface web PhpMyAdmin Dockerizado, tutorial Drive:](https://docs.google.com/document/d/1iteWeHyYgD4lyjB1zA_IN_j3bb_SpFukxwEdetI4Eo8/edit?usp=sharing)
 
 - Tutorial en GhiHab
 
-🔗[Base de datos MariaBD e interface web PhpMyAdmin Dockerizado, tutorial GitHab:](https://github.com/jose-giithub/vps-demo/tree/main/servers/database)
+🔗[Base de datos MariaDB e interface web PhpMyAdmin Dockerizado, tutorial GitHab:](https://github.com/jose-giithub/vps-demo/tree/main/servers/database)
 
 ******
 ----
