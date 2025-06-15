@@ -1,0 +1,34 @@
+services:
+# 📦 CONTENEDOR 1. 🗄️ Base de datos MariaDB
+  mariadb:
+    image: mariadb:10.6
+    container_name: mariadb-servidor
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${userRoot} # ℹ️ Esta variable se la pasaremos desde el archivo .env
+      MYSQL_DATABASE: ${dbName} # ℹ️ Esta variable se la pasaremos desde el archivo .env
+      MYSQL_USER: ${userApp} # ℹ️ Esta variable se la pasaremos desde el archivo .env
+      MYSQL_PASSWORD: ${userPass} # ℹ️ Esta variable se la pasaremos desde el archivo .env
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    expose:
+      - "3306"
+    networks:
+      - proxiable
+
+# 📦 CONTENEDOR 2. 🌐 Interfaz web phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-servidor
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mariadb
+      # Para probar saltando el proxy. Url ejemplo seria http://127.127.127.127:8081/
+    # ports:
+      # - "8081:80"
+    networks:
+      - proxiable
+
+networks:
+  proxiable:
+    external: true
