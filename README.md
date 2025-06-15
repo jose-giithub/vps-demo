@@ -3,6 +3,32 @@
 
 Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Proxy Manager.
 
+## Índice
+
+- [¿Qué es este tutorial?](#qué-es-este-tutorial)
+- [🧰 Si quieres uno tutorial más completo lo tienes en:](#-si-quieres-uno-tutorial-más-completo-lo-tienes-en)
+- [📋 Requisitos previos](#-requisitos-previos)
+- [👤 Crear nuevo usuario personal](#-crear-nuevo-usuario-personal)
+- [💽 Actualiza sistema e instalar nuevas herramientas](#-actualiza-sistema-e-instalar-nuevas-herramientas)
+- [🛡️ Seguridad](#-seguridad)
+- [🧼 Escaneo y limpieza de malware](#-escaneo-y-limpieza-de-malware)
+- [📧 Configurar correos automáticos](#-configurar-correos-automáticos)
+- [🤖 Scripts automáticos](#-scripts-automáticos)
+- [🐳 Instalar Docker](#-instalar-docker)
+- [⚓ Instalar Portainer](#-instalar-portainer)
+- [👮 Nginx Proxy Manager](#-nginx-proxy-manager)
+- [☁️ Ejemplo web de prueba](#-ejemplo-web-de-prueba)
+- [🔥 Configurar firewall](#-configurar-firewall)
+- [💾 Backups automáticos con Duplicati](#-backups-automáticos-con-duplicati)
+- [🕵️ GoAccess analizador de registros del servidor web](#-goaccess-analizador-de-registros-del-servidor-web)
+- [🌳 Estructura de como tendría que quedar tu servidor](#-estructura-de-como-tendría-que-quedar-tu-servidor)
+- [Contenido extra ➕➕](#contenido-extra)
+- [🚨 Comandos útiles](#-comandos-útiles)
+- [Monitoreo del sistema](#monitoreo-del-sistema)
+- [🔧 Solución de problemas](#-solución-de-problemas)
+- [📚 Recursos adicionales](#-recursos-adicionales)
+- [🗄️¿Te gustaría añadir una base de datos segura y Dockerizada?](#base-de-datos-segura-y-Dockerizada)
+- [📚 Bibliografía y Recursos 🔗](#📚-bibliografía-y-recursos-🔗)
 
 ---
 
@@ -1040,7 +1066,7 @@ services:
 nano .env
 ```
 
-```env
+```bash
 TZ=Europe/Madrid
 #❗ clave de cifrado para su base de datos de configuración tiene que tener 32 de longitud
 SETTINGS_ENCRYPTION_KEY=tu_clave_de_32_caracteres_aqui
@@ -1098,51 +1124,51 @@ Al entrar por primera vez nos pedirá una nueva contraseña, la ponemos y la gua
 
 *** Estrucutra resumida desde */home/tuUser* ***
 ```text
-vps-demo/
-├── scripts
-│   ├── actualizarSistema.sh
-│   ├── limpieza_seguridad_diaria.sh
-│   ├── run_goaccess_report.sh
-│   └── logs
-│          ├── actualizar_sistema_2025-06-05.log
-│          └── limpieza_seguridad_diaria_2025-06-05.log
-└── servers
-    ├── duplicati
-    │   ├── docker-compose.yaml
-    │   ├── .env
-    │   ├── backups
-    │   └── duplicati-data
-    ├── goAccess
-    │   ├── docker-compose.yaml
-    │   ├──  generate-report.sh
-    │   ├──  goaccess.conf
-    │   ├──  htpasswd
-    │   ├──  nginx.conf
-    │   ├── logs
-    │   └── reports
-    │       ├── info.html
-    │       ├── index.html
-    │       ├── last_update.txt
-    │       ├── data
-    │       └── logs
-    ├── nginx
-    │   ├── docker-compose.yaml
-    │   ├── data
-    │   │   ├── logs
-    │   │   └── nginx
-    │   └── letsencrypt
-    ├── portainer
-    │   ├── docker-compose.yaml
-    ├── testweb
+📂vps-demo/
+├──📂 scripts
+│   ├── 📄actualizarSistema.sh
+│   ├──📄 limpieza_seguridad_diaria.sh
+│   ├── 📄run_goaccess_report.sh
+│   └── 📂logs
+│          ├── 📄actualizar_sistema_2025-06-05.log
+│          └── 📄limpieza_seguridad_diaria_2025-06-05.log
+└── 📂servers
+    ├──📂 duplicati
+    │   ├── 📄docker-compose.yaml
+    │   ├── 📄.env
+    │   ├──📂 backups
+    │   └── 📂duplicati-data
+    ├──📂 goAccess
+    │   ├──📄docker-compose.yaml
+    │   ├── 📄 generate-report.sh
+    │   ├── 📄 goaccess.conf
+    │   ├── 📄 htpasswd
+    │   ├──  📄nginx.conf
+    │   ├── 📂logs
+    │   └── 📂reports
+    │       ├──📄 info.html
+    │       ├──📄 index.html
+    │       ├── 📄last_update.txt
+    │       ├── 📂data
+    │       └── 📂logs
+    ├── 📂nginx
+    │   ├── 📄docker-compose.yaml
+    │   ├──📂 data
+    │   │   ├── 📂logs
+    │   │   └──📂 nginx
+    │   └──📂 letsencrypt
+    ├── 📂portainer
+    │   ├── 📄docker-compose.yaml
+    ├──📂 testweb
            ├─ docker-compose.yaml
-           └── www
-                  └── index.html
+           └── 📂www
+                  └── 📄index.html
 ```
 
 
 ## Contenido extra ➕➕
 
-## 📊 Monitoreo con crontab
+### 📊 Monitoreo con crontab
 
 Verificar tareas programadas:
 ```bash
@@ -1158,9 +1184,23 @@ cat /home/tuUser/scripts/logs/actualizar_sistema_$(date +%F).log
 cat /home/tuUser/scripts/logs/limpieza_seguridad_diaria_$(date +%F).log
 
 ```
+
+### 🗄️En tu proyecto ¿Te gustaría añadir una base de datos segura y Dockerizada? Aqui tienes el tutorial
+
+>Montar una base de datos SQL para nuestro servidor usando MariaDB y para manipularla una interfaz web PhpMyAdmin con usuario y contraseña.
+
+- Documento Drive
+
+🔗[Base de datos MariaBD e interface web PhpMyAdmin Dockerizado, tutorial Drive:](https://docs.google.com/document/d/1iteWeHyYgD4lyjB1zA_IN_j3bb_SpFukxwEdetI4Eo8/edit?usp=sharing)
+
+- Tutorial en GhiHab
+
+🔗[Base de datos MariaBD e interface web PhpMyAdmin Dockerizado, tutorial GitHab:](https://github.com/jose-giithub/vps-demo/tree/main/servers/database)
+
 ******
 ----
 ******
+
 
 ## 🚨 Comandos útiles
 
