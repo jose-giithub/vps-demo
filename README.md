@@ -26,7 +26,7 @@ Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Prox
 - [🚨 Comandos útiles](#comandosUtiles)
 - [🔧 Solución de problemas](#-solucion-de-problemas)
 - [📚 Recursos adicionales](#-recursos-adicionales)
-- [🗄️ ¿Quieres una base de datos MariaDB y PhpMyAdmin?](#️database)
+- [🗄️ ¿Quieres una base de datos MariaDB y PhpMyAdmin?](#database)
 - [📚Bibliografía y Recursos ](#bibliografia)
 
 ---
@@ -1184,7 +1184,7 @@ cat /home/tuUser/scripts/logs/limpieza_seguridad_diaria_$(date +%F).log
 
 ```
 
-### <a name="database">🗄️ Base de datos MariaDB y PhpMyAdmin</a>
+### <a name="database">🗄️¿Quieres una base de datos MariaDB y PhpMyAdmin?</a>
 
 **🗄️En tu proyecto ¿Te gustaría añadir una base de datos segura y Dockerizada? Aqui tienes el tutorial**
 
