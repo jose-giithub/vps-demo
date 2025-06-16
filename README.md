@@ -17,7 +17,7 @@ Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Prox
 - [🐳 Instalar Docker](#-instalar-docker)
 - [⚓ Instalar Portainer](#-instalar-portainer)
 - [👮 Nginx Proxy Manager](#-nginx-proxy-manager)
-- [☁️Ejemplo web de prueba](#ejemplo-web-de-prueba)
+- [🌐 Web estática de ejemplo y prueba](#webEjemplo)
 - [🔥 Configurar firewall](#-configurar-firewall)
 - [💾 Backups automáticos con Duplicati](#backupsAutomaticos)
 - [🕵️ GoAccess analizador de registros del servidor web](#goaccess)
@@ -909,7 +909,7 @@ docker compose up -d
 ----
 ******
 
-## Ejemplo web de prueba
+## <a name="webEjemplo">🌐 Web estática de ejemplo y prueba </a> 
 
 ### 1. Crear estructura
 ```bash
