@@ -10,7 +10,8 @@ Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Prox
 - [📋 Requisitos previos](#-requisitos-previos)
 - [👤 Crear nuevo usuario personal](#-crear-nuevo-usuario-personal)
 - [💽 Actualiza sistema e instalar nuevas herramientas](#-actualiza-sistema-e-instalar-nuevas-herramientas)
-- [🛡️ Seguridad](#-seguridad)
+- [🛡️ Seguridad](#seguridad)
+<!-- - [🛡️ Seguridad](#-seguridad) -->
 - [🧼 Escaneo y limpieza de malware](#-escaneo-y-limpieza-de-malware)
 - [📧 Configurar correos automáticos](#-configurar-correos-automaticos)
 - [🤖 Scripts automáticos](#-scripts-automaticos)
@@ -145,7 +146,7 @@ sudo apt install lsof
 ******
 
 
-## 🛡️ Seguridad
+## <a name="seguridad">🛡️Seguridad</a>
 
 ### 1. Instalar protecciones
 ```bash
