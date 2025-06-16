@@ -9,27 +9,25 @@ Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Prox
 - [🧰 Si quieres uno tutorial más completo lo tienes en:](#-si-quieres-uno-tutorial-mas-completo-lo-tienes-en)
 - [📋 Requisitos previos](#-requisitos-previos)
 - [👤 Crear nuevo usuario personal](#-crear-nuevo-usuario-personal)
-- [💽 Actualiza sistema e instalar nuevas herramientas](#-actualiza-sistema-e-instalar-nuevas-herramientas)
+- [💽 Actualiza sistema e instalar nuevas herramientas](#actualizarSistema)
 - [🛡️ Seguridad](#seguridad)
-<!-- - [🛡️ Seguridad](#-seguridad) -->
 - [🧼 Escaneo y limpieza de malware](#-escaneo-y-limpieza-de-malware)
-- [📧 Configurar correos automáticos](#-configurar-correos-automaticos)
-- [🤖 Scripts automáticos](#-scripts-automaticos)
+- [📧 Configurar correos automáticos](#correosAutomaticos)
+- [🤖 Scripts automáticos](#scriptsAutomaticos)
 - [🐳 Instalar Docker](#-instalar-docker)
 - [⚓ Instalar Portainer](#-instalar-portainer)
 - [👮 Nginx Proxy Manager](#-nginx-proxy-manager)
 - [☁️Ejemplo web de prueba](#ejemplo-web-de-prueba)
 - [🔥 Configurar firewall](#-configurar-firewall)
-- [💾 Backups automáticos con Duplicati](#-backups-automaticos-con-duplicati)
-- [🕵️ GoAccess analizador de registros del servidor web](#-goaccess-analizador-de-registros-del-servidor-web)
-- [🌳 Estructura de como tendría que quedar tu servidor](#-estructura-de-como-tendría-que-quedar-tu-servidor)
-- [Contenido extra ➕➕](#contenido-extra)
-- [🚨 Comandos útiles](#-comandos-utiles)
-- [Monitoreo del sistema](#monitoreo-del-sistema)
+- [💾 Backups automáticos con Duplicati](#backupsAutomaticos)
+- [🕵️ GoAccess analizador de registros del servidor web](#goaccess)
+- [🌳 Estructura de como tendría que quedar tu servidor](#estructuraServer)
+- [🎁Contenido extra ➕➕](#contenidoExtra)
+- [🚨 Comandos útiles](#comandosUtiles)
 - [🔧 Solución de problemas](#-solucion-de-problemas)
 - [📚 Recursos adicionales](#-recursos-adicionales)
-- [🗄️ Base de datos MariaDB y PhpMyAdmin](#️-base-de-datos-mariadb-y-phpmyadmin)
-- [Bibliografía y Recursos ](#-bibliografia-y-recursos )
+- [🗄️ ¿Quieres una base de datos MariaDB y PhpMyAdmin?](#️database)
+- [📚Bibliografía y Recursos ](#bibliografia)
 
 ---
 
@@ -107,7 +105,7 @@ tuUser ALL=(ALL) NOPASSWD: ALL
 ----
 ******
 
-## 💽 Actualiza  sistema e instalar nuevas herramientas
+## <a name="actualizarSistema">💽 Actualiza  sistema e instalar nuevas herramientas </a>
 
 ### 1. Actualiza sistema
 
@@ -221,7 +219,7 @@ sudo journalctl --vacuum-time=7d  #Esto borrará los logs del sistema de más de
 ******
 ----
 ******
-## 📧 Configurar correos automáticos 
+## <a name="correosAutomaticos">📧 Configurar correos automáticos</a> 
 
 >> ***🚨Super importante:***
 > **Nota**: Necesitas crear una contraseña de aplicación en Gmail para usar *msmtp*.
@@ -355,7 +353,7 @@ MAILTO="ejemplo@gmail.com"
 ----
 ******
 
-## 🤖 Scripts automáticos
+## <a name="scriptsAutomaticos">🤖 Scripts automáticos </a>          
 
 ### 🧼 Script de limpieza diaria
 
@@ -1030,7 +1028,7 @@ Ambos comandos deben mostrar respuesta desde la IP de tu servidor, confirmando q
 ----
 ******
 
-## 💾 Backups automáticos con Duplicati
+## <a name="backupsAutomaticos">💾 Backups automáticos con Duplicati </a>
 
 🔗[Info del contenedor:](https://hub.docker.com/r/linuxserver/duplicati)
 
@@ -1110,7 +1108,7 @@ Al entrar por primera vez nos pedirá una nueva contraseña, la ponemos y la gua
 
 
 
-## 🕵️GoAccess analizador de registros del servidor web
+## <a name="goaccess">🕵️GoAccess analizador de registros del servidor web</a>
 
 >Tutorial completo de configuración paso a paso usando Docker, almacenamiento rotativo y estadísticas web.
 
@@ -1121,7 +1119,7 @@ Al entrar por primera vez nos pedirá una nueva contraseña, la ponemos y la gua
 ----
 ******
 
-## 🌳Estructura de como tendria que quedar tus servidor
+## <a name="estructuraServer">🌳Estructura de como tendria que quedar tus servidor </a>  
 
 *** Estrucutra resumida desde */home/tuUser* ***
 ```text
@@ -1167,9 +1165,9 @@ Al entrar por primera vez nos pedirá una nueva contraseña, la ponemos y la gua
 ```
 
 
-## Contenido extra ➕➕
+## <a name="contenidoExtra">🎁Contenido extra ➕➕</a>
 
-### 📊 Monitoreo con crontab
+### 📊 Monitoreo con crontab 
 
 Verificar tareas programadas:
 ```bash
@@ -1186,7 +1184,7 @@ cat /home/tuUser/scripts/logs/limpieza_seguridad_diaria_$(date +%F).log
 
 ```
 
-### 🗄️ Base de datos MariaDB y PhpMyAdmin
+### <a name="database">🗄️ Base de datos MariaDB y PhpMyAdmin</a>
 
 **🗄️En tu proyecto ¿Te gustaría añadir una base de datos segura y Dockerizada? Aqui tienes el tutorial**
 
@@ -1205,7 +1203,7 @@ cat /home/tuUser/scripts/logs/limpieza_seguridad_diaria_$(date +%F).log
 ******
 
 
-## 🚨 Comandos útiles
+## <a name="comandosUtiles">🚨 Comandos útiles</a>
 
 ### Docker
 ```bash
@@ -1231,7 +1229,7 @@ docker restart nombre-contenedor
 ----
 ******
 
-### Monitoreo del sistema
+### 📊 Monitoreo del sistema
 ```bash
 # Ver uso de disco
 df -h
@@ -1287,9 +1285,7 @@ chmod +x /home/tuUser/scripts/*.sh
 
 ---
 
-## Bibliografía y Recursos 
-
-**📚🔗**
+## <a name="bibliografia">📚Bibliografia Bibliografía y Recursos🔗</a>
 
 - **YouTube** 
 - **GitHub** 
