@@ -14,13 +14,13 @@ Montar una base de datos SQL para nuestro servidor usando MariaDB y para manipul
 ---
 ***
 
-## Índice
+## 📋Índice
 
 - [🤔 ¿Qué encontraremos en este tutorial?](#que-encontraremos-en-este-tutorial)
 - [🚧 Requisitos previos](#requisitos-previos)
 - [⚠️ Tener en cuenta](#tener-en-cuenta)
 - [📂 Creamos la estructura para nuestra base de datos](#creamos-la-estructura-para-nuestra-base-de-datos)
-- [📝 Creamos el documento docker-compose.yaml](#creamos-el-documento-docker-composeyaml)
+- [📝 Creamos el documento docker-compose.yml](#creamos-el-documento-docker-composeyml)
 - [🔒 Archivo env para las credenciales](#archivo-env-para-las-credenciales)
 - [🐳 Levantamos el contenedor](#levantamos-el-contenedor)
 - [🌐 Configurar Nginx Proxy Manager](#configurar-nginx-proxy-manager)
@@ -38,6 +38,11 @@ Montar una base de datos SQL para nuestro servidor usando MariaDB y para manipul
 ## 🤔 ¿Qué encontraremos en este tutorial?
 
 Guía del paso a paso para levantar un servicio de base de datos MariaDB junto con una interfaz web PhpMyAdmin usando Docker y Docker Compose, de forma segura y organizada.
+
+---
+## 🧰 Si quieres uno tutorial mas completo y detallado lo tienes en: 
+
+🔗[🗄️Como subir una Base de datos MariaDB e interface web phpMyAdmin Dockerizado🐳, tutorial Drive:](https://docs.google.com/document/d/1iteWeHyYgD4lyjB1zA_IN_j3bb_SpFukxwEdetI4Eo8/edit?usp=sharing)
 
 ***
 ---
@@ -93,16 +98,16 @@ Ruta final: `/home/tuUser/servers/database/mariadb`
 ---
 ***
 
-## 📝 Creamos el documento `docker-compose.yaml`
+## 📝 Creamos el documento `docker-compose.yml`
 
 ```bash
 cd /home/tuUser/servers/database
-nano docker-compose.yaml
+nano docker-compose.yml
 ```
 
 Contenido del archivo:
 
-```yaml
+```yml
 services:
   # 📦 CONTENEDOR 1. 🗄 Base de datos MariaDB
   mariadb:
@@ -142,7 +147,7 @@ networks:
 
 ## 🔒 Archivo `.env` para las credenciales
 
-Creamos el archivo oculto `.env` junto al `docker-compose.yaml`:
+Creamos el archivo oculto `.env` junto al `docker-compose.yml`:
 
 ```bash
 nano .env
@@ -151,16 +156,21 @@ nano .env
 Contenido:
 
 ```bash
-#  Usuario root de MariaDB del "MYSQL_ROOT_PASSWORD" en el .yaml
+#  Usuario root será root, es el usuario por defecto
+# Contraseña para el usuario root de MariaDB del "MYSQL_ROOT_PASSWORD" en el .yml
 userRoot=MiRootSeguro123
 
-# Nombre de una base de datos inicial. Para "MYSQL_DATABASE" en el .yaml
+# Nombre de una base de datos inicial. Para "MYSQL_DATABASE" en el .yml
 dbName=miPrimerabd
 
- # Para "MYSQL_USER" en el .yaml. El usuario 
+# #  Usuario no root 
+
+ # Tu usuario para entrar en la interface phpMyAdmin
+# Hace referencia a *MYSQL_USER* en el .yml 
 userApp=tuUserApp
 
-# Para "MYSQL_PASSWORD" en el .yaml. Contraseña del usuario para acceder a la interface web PhpMyAdmin
+# Contraseña de tu usuario (no root), para entrar en la interface phpMyAdmin
+# Hace referencia a "MYSQL_PASSWORD" en el .yml
 userPass=claveSegura123
 ```
 
@@ -211,7 +221,7 @@ Verifica accediendo a:
 
 ```text
 /📂home/tuUser/servers/database/
-├── 📄docker-compose.yaml
+├── 📄docker-compose.yml
 ├── 📄.env
 └── 📂mariadb/
     └── 📂/📄(datos internos creados automáticamente)
@@ -285,6 +295,7 @@ Dentro del cliente:
 ALTER USER 'tuUserApp'@'%' IDENTIFIED BY 'nuevaClave';
 FLUSH PRIVILEGES;
 ```
+
 ***
 ---
 ***

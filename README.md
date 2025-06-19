@@ -1,9 +1,20 @@
 # 🛠️ Configurar VPS desde 0 paso a paso💾
-**Autor**: Jose Rodríguez  
 
 Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Proxy Manager.
 
-## Índice
+**Autor**: Jose Rodríguez  
+
+## Redes sociales 🌐
+
+**Portfolio**🔗[Enlace portfolio:](https://portfolio.jose-rodriguez-blanco.es)
+**LinkedIn**🔗[Enlace LinkedIn:](https://www.linkedin.com/in/joseperfil/)
+**GitHub**🔗[Enlace GitHub:](https://github.com/jose-giithub)
+
+***
+---
+***
+
+## 📋 Índice
 
 - [¿Qué es este tutorial?](#que-es-este-tutorial)
 - [🧰 Si quieres uno tutorial más completo lo tienes en:](#-si-quieres-uno-tutorial-mas-completo-lo-tienes-en)
@@ -29,7 +40,9 @@ Guía completa para montar un servidor Ubuntu con Docker, Portainer y Nginx Prox
 - [🗄️ ¿Quieres una base de datos MariaDB y PhpMyAdmin?](#database)
 - [📚Bibliografía y Recursos ](#bibliografia)
 
+***
 ---
+***
 
 ## ¿Qué es este tutorial?
 
@@ -811,13 +824,13 @@ mkdir -p /home/tuUser/servers/portainer
 cd /home/tuUser/servers/portainer
 ```
 
-### 2. Crear docker-compose.yaml
+### 2. Crear docker-compose.yml
 ```bash
-nano docker-compose.yaml
+nano docker-compose.yml
 ```
 
 Contenido:
-```yaml
+```yml
 services:
   portainer:
     image: portainer/portainer-ce:latest
@@ -854,13 +867,13 @@ mkdir -p /home/tuUser/servers/nginx
 cd /home/tuUser/servers/nginx
 ```
 
-### 2. Crear docker-compose.yaml
+### 2. Crear docker-compose.yml
 ```bash
-nano docker-compose.yaml
+nano docker-compose.yml
 ```
 
 Contenido:
-```yaml
+```yml
 services:
   app:
     image: 'jc21/nginx-proxy-manager:latest'
@@ -900,8 +913,8 @@ docker compose up -d
 ### 5. Configurar dominio con SSL
 1. Crear nuevo Proxy Host
 2. Domain Names: tu-subdominio.com
-3. Forward Hostname/IP: nginxproxymanager  **Definido en container_name que tenemos en el archivo *docker-compose.yaml*.**
-4. Forward Port: 81 **Definido en el archivo *docker-compose.yaml*.**
+3. Forward Hostname/IP: nginxproxymanager  **Definido en container_name que tenemos en el archivo *docker-compose.yml*.**
+4. Forward Port: 81 **Definido en el archivo *docker-compose.yml*.**
 5. En pestaña SSL: Request new SSL certificate
 
 
@@ -917,8 +930,8 @@ mkdir -p /home/tuUser/servers/testweb/www
 cd /home/tuUser/servers/testweb
 ```
 
-### 2. Crear docker-compose.yaml
-```yaml
+### 2. Crear docker-compose.yml
+```yml
 services:
   testweb:
     image: nginx:alpine
@@ -1039,9 +1052,9 @@ mkdir -p /home/tuUser/servers/duplicati
 cd /home/tuUser/servers/duplicati
 ```
 
-### 2. Crear docker-compose.yaml
+### 2. Crear docker-compose.yml
 
-```yaml
+```yml
 services:
   duplicati:
     image: duplicati/duplicati:latest
@@ -1133,12 +1146,12 @@ Al entrar por primera vez nos pedirá una nueva contraseña, la ponemos y la gua
 │          └── 📄limpieza_seguridad_diaria_2025-06-05.log
 └── 📂servers
     ├──📂 duplicati
-    │   ├── 📄docker-compose.yaml
+    │   ├── 📄docker-compose.yml
     │   ├── 📄.env
     │   ├──📂 backups
     │   └── 📂duplicati-data
     ├──📂 goAccess
-    │   ├──📄docker-compose.yaml
+    │   ├──📄docker-compose.yml
     │   ├── 📄 generate-report.sh
     │   ├── 📄 goaccess.conf
     │   ├── 📄 htpasswd
@@ -1151,15 +1164,15 @@ Al entrar por primera vez nos pedirá una nueva contraseña, la ponemos y la gua
     │       ├── 📂data
     │       └── 📂logs
     ├── 📂nginx
-    │   ├── 📄docker-compose.yaml
+    │   ├── 📄docker-compose.yml
     │   ├──📂 data
     │   │   ├── 📂logs
     │   │   └──📂 nginx
     │   └──📂 letsencrypt
     ├── 📂portainer
-    │   ├── 📄docker-compose.yaml
+    │   ├── 📄docker-compose.yml
     ├──📂 testweb
-           ├─ docker-compose.yaml
+           ├─ docker-compose.yml
            └── 📂www
                   └── 📄index.html
 ```
