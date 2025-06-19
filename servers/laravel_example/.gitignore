@@ -1,0 +1,27 @@
+# Añade tus .env aquí y todos los archivos con información relevante
+
+# **Como tendría que quedar tu archivo .gitignore**
+
+# # ignora el .env de la raíz del proyecto (para docker-compose)
+# /.env
+
+# # Archivos y directorios específicos de la estructura del tutorial
+# /www/node_modules
+# /www/public/build
+# /www/public/hot
+# /www/public/storage
+# /www/vendor
+# /www/.env
+# /www/.env.backup
+# /www/storage/framework/sessions/*
+# /www/storage/framework/views/*.php
+# /www/storage/framework/cache/data/*
+
+# # Logs
+# /www/storage/logs/*.log
+# /logs
+# *.log
+
+# # Archivos de sistema operativo
+# .DS_Store
+# Thumbs.db

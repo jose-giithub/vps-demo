@@ -1,0 +1,48 @@
+services:
+#📦CONTENEDOR 1: 🏡 PHP en el que se ejecutará Laravel
+  laravel_example_php:
+    container_name: laravel_example_php
+    build:
+      args:
+      #Usuario que corre los contenedores. Tienen que coincidir el usuario y el ID del host y el contenedor
+        user: ${user} # Comando para averiguar los user y sus uid: id
+        uid: ${uid} # ID del usuario anterior
+        # Ruta donde encontrara el archivo Dockerfile
+      context: ./
+      dockerfile: Dockerfile # Hace referencia al archivo Dockerfile
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes: # volúmenes que creara al subir el contenedor
+      - ./www:/var/www
+    env_file: # Archivo donde guardar la info importante
+      - ./.env  # Especifica la ruta a tu nuevo archivo .env
+      # Redes por las que se comunican los contenedores, comando para validar las redes: docker network ls
+    networks:
+      - proxiable
+#📦CONTENEDOR 2: 🌐Servidor web inverso. 
+# Encargado de servir la aplicación Laravel (que corre en el contenedor *laravel_example_php*
+  laravel_example_nginx:
+    image: nginx:latest
+    container_name: laravel_example_nginx
+    restart: unless-stopped
+    # Expongo los puertos para que Nginx proxy manager se ocupe del trafico
+    expose:
+      - "80"
+      - "443"
+      - "5173"
+    volumes:
+      - ./www:/var/www
+      - ./nginx:/etc/nginx/conf.d/
+
+# ⚠️ Si usas GooAccess, si no lo usas borra esta lñinea  ⬇️   
+      - /home/tuUser/servers/laravel_example/nginx/data/logs:/var/log/nginx  # ⚠️Ruta completa donde crear los logs laravel_example_error.log y laravel_example_access.log.
+    networks:
+      - proxiable
+# Redes
+networks:
+  proxiable:
+    external: true
+
+  # ⚠️*NO MONTAMOS* ⚠️porque ya tengo una base de datos creada:
+  # 📦❌CONTENEDOR *MariaBD* para la  configura la base de datos MariaBD
+  # 📦❌CONTENEDOR  *phpMyAdmin* Herramienta gráfica para gestionar ls bases de datos. 
