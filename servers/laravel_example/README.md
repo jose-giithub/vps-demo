@@ -653,6 +653,9 @@ find www -type f -exec chmod 644 {} \;
 # 4. Dar permisos de escritura especiales solo a storage/ y bootstrap/cache/. Recursivo (todo dentro), permitir lectura y escritura al usuario (u) y al grupo (g).
 chmod -R ug+rw www/storage www/bootstrap/cache
 
+# 5. Eliminar el archivo hot de Vite si existe (evita que Laravel use modo dev en producción)
+rm -f www/public/hot
+
 echo "Permisos corregidos con éxito"
 ```
 
@@ -1016,12 +1019,26 @@ Compila los assets para desarrollo
 ```bash
 npm run dev
 ```
+Dar permisos a los binarios de Node para que puedan ejecutarse 
+
+```bash
+chmod +x node_modules/.bin/vite chmod +x node
+```
 
 Compila los assets optimizados para producción
 
 ```bash
 npm run build
 ```
+
+⚠️ IMPORTANTE: borrar el archivo hot si existe. 
+Este archivo le dice a Laravel que Vite está en modo dev. 
+Si existe en producción, Laravel ignorará el build y apuntará al puerto 5173.
+
+```bash
+rm -f public/hot
+``
+
 
 ***
 ---
